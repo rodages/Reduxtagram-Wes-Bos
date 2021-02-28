@@ -1,20 +1,21 @@
-import { createStore, compose } from 'redux';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { createStore, compse } from 'redux';
+import { syncHistoryWithStore} from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
-//import root reducer
+// import the root reducer
 import rootReducer from './reducers/index';
-//data
-import comments from "./data/comments";
-import posts from "./data/posts";
 
-//create an object for the default data
+import comments from './data/comments';
+import posts from './data/posts';
+
+// create an object for the default data
 const defaultState = {
   posts,
-  comments,
+  comments
 };
+
 const store = createStore(rootReducer, defaultState);
-//tracks where you are when you are navigating between pages
+
 export const history = syncHistoryWithStore(browserHistory, store);
 
 export default store;
